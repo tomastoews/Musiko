@@ -29,7 +29,6 @@ function getSongs(query, limit) {
     return new Promise((resolve, reject) => {
         spotifyApi.searchTracks(query, {limit}).then(
             (data) => {
-                // console.log(data.body.tracks.items);
                 const songs = data.body.tracks.items.map(item => {
                     return {
                         name: item.name,
@@ -232,7 +231,6 @@ function searchArtists(query) {
     return new Promise((resolve, reject) => {
         spotifyApi.searchArtists(query).then(
             (data) => {
-                console.log(data.body.artists.items);
                 const artists = data.body.artists.items.map(artist => {
                     return {
                         name: artist.name,
