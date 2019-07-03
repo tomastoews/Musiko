@@ -20,7 +20,7 @@
                                 <td>
                                     Genres: 
                                     {{#each album.genres }}
-                                        <a href="/genre/{{ this.name }}">{{ this.name }}</a>
+                                        <a href="/genre?search={{ this.name }}">{{ this.name }}</a>
                                     {{/each }}
                                 </td>
                             </tr>
