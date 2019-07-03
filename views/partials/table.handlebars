@@ -1,0 +1,36 @@
+<div class="px-4 py-4">
+
+    <h2 class="text-light mb-3">{{ this.title }}</h2>
+
+    <table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col"><i class="far fa-clock"></i></th>
+            <th scope="col">Artist</th>
+            <th scope="col">Album</th>
+            <th scope="col">Popularity</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each this.data }}
+            <a href="/song/{{this.name}}">                
+                <tr>
+                    <td>
+                        <img 
+                            src="{{ this.preview_img_sm }}" 
+                            alt="{{ this.name }}"
+                            class="table-item-preview-image"
+                            draggable="false">
+                        {{ this.name }}
+                    </td>
+                    <td>{{ this.duration }}</td>
+                    <td>{{ this.artist.name }}</td>
+                    <td>{{ this.album }}</td>
+                    <td>{{ this.popularity }} %</td>
+                </tr>
+            </a>
+        {{/each }}        
+    </tbody>
+    </table>
+</div>

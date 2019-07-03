@@ -1,0 +1,90 @@
+<div class="px-4 py-4">
+    <div class="row">
+        <div class="col-lg-5 col-md-8 text-light">
+            <h1>{{song.name}}</h1>
+            <h4>
+                By 
+                {{#each song.artists }}
+                    <a href="/artist/{{ this.id }}">{{ this.name }}</a>
+                {{/each }}
+                Album: <a href="/album/{{ song.album.id }}">{{ song.album.name }}</a>
+            </h4>
+
+            <div class="pt-4">
+                <table class="table table-dark">
+                    <tbody>
+                        <tr>             
+                            <td>Album: {{ song.album.name }}</td>
+                        </tr>
+                        <tr>             
+                            <td>Duration: {{ song.duration }}</td>
+                        </tr>
+                        {{#if album.genres }}
+                            <tr>
+                                <td>
+                                    Genres: 
+                                    {{#each song.genres }}
+                                        <a href="/genre/{{ this.name }}">{{ this.name }}</a>
+                                    {{/each }}
+                                </td>
+                            </tr>
+                        {{/if }}     
+                        <tr>             
+                            <td>Release Date: {{ song.album.release_date }}</td>
+                        </tr>
+                        <tr>             
+                            <td>Popularity: {{ song.popularity }} %</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {{#if song.preview_url }}
+                <a
+                    href="{{song.preview_url}}"
+                    target="_blank"
+                    type="button" 
+                    class="btn btn-secondary btn-lg">
+                    <i class="fas fa-play mr-1"></i>
+                    Play
+                </a>
+                <audio src="{{song.preview_url}}" type="audio/mpeg"></audio>
+            {{/if }}
+        </div>
+
+        <div class="col-lg-4 col-md-4 mb-4">
+            <img 
+                src="{{song.album.preview_img_lg}}"
+                alt="{{album.name}}"
+                style="width: 100%"
+                draggable="false">
+        </div>
+
+        <div class="col-lg-3">
+                {{#each song.artists }}
+                    <div class="card bg-secondary mb-4">
+                        <img
+                            src="{{ this.preview_img_md }}"
+                            alt="{{ this.name }}"
+                            class="card-img-top" 
+                            draggable="false">
+                        <div class="card-body text-light">
+                            <h5 class="card-title">{{ this.name }}</h5>
+                            <p class="card-text">Popularity: {{ this.popularity }} %</p>
+                            <p class="card-text">
+                                Genres: <br/>
+                                {{#each this.genres }}
+                                    <a
+                                        href="/genre?search={{ this }}" 
+                                        class="badge badge-light">
+                                        {{ this }}
+                                    </a>
+                                {{/each }}
+                            </p>
+                        </div>
+                    </div>
+                {{/each }}
+            </div>
+        </div>
+
+    </div>
+</div>

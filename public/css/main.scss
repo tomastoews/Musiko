@@ -1,0 +1,70 @@
+
+$custom-bg-color-primary: #212735;
+$custom-bg-color-secondary: #31394c;
+$custom-densed-text-color: darken(white, 30);
+
+$body-bg: $custom-bg-color-primary;
+
+// Colors
+$secondary: $custom-bg-color-secondary;
+
+// Navbar
+$navbar-padding-y: 0;
+$navbar-padding-x: 2em;
+
+// Input
+$input-color: $custom-densed-text-color;
+$input-border-color: transparent;
+$input-border-width: 0;
+$input-height: 5em;
+$input-group-addon-bg: #31394c;
+$input-group-addon-color: $custom-densed-text-color;
+
+// Table
+$table-dark-bg: $custom-bg-color-secondary;
+$table-head-bg: $custom-bg-color-secondary;
+
+// List
+$list-group-bg: $custom-bg-color-secondary;
+$list-group-color: #fff; // $custom-densed-text-color;
+$list-group-active-color: white;
+
+$enable-responsive-font-sizes: true;
+
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
+body {
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar {
+    background: $custom-bg-color-secondary !important;
+    height: 80px;
+    #search-input {
+        background: $custom-bg-color-secondary !important;
+        &:focus { outline: none !important; }
+    }
+}
+
+.table {
+    .table-item-preview-image {
+        height: 40px;
+        margin-right: 20px;
+    }
+}
+
+#playsong {
+    background: $custom-bg-color-secondary !important;
+    box-shadow: #212735 0 0 20px 10px;
+    z-index: 10;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100px;
+}

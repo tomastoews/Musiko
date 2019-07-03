@@ -1,0 +1,29 @@
+<aside>
+    <div class="px-4 py-4">
+        <h5 class="text-light mb-3">Featured Artists</h5>
+        <ul class="list-group">
+            {{#each featuredArtsts }}
+            <a href="/artist/{{this.id}}">
+                <li class="list-group-item">
+                    <i class="fas fa-microphone-alt mr-2"></i>
+                    {{ this.name }}
+                </li>
+            </a>
+            {{/each }}
+        </ul>
+    </div>
+
+    <div class="px-4 py-4">
+        <h5 class="text-light mb-3">Genres</h5>
+        <ul class="list-group">
+            {{#each featuredGenres }}
+            <a href="/genre?search={{this}}&page=0">
+                <li class="list-group-item">
+                    <i class="fas fa-music mr-2"></i>
+                    {{ this }}
+                </li>
+            </a>
+            {{/each }}
+        </ul>
+    </div>
+</aside>

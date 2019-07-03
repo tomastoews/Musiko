@@ -1,0 +1,60 @@
+
+<div class="px-4 py-4">
+    <div class="row">
+
+        {{#each songs }}
+            <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2">
+                <a href="/song/{{ this.name }}">
+                    <div class="card bg-secondary">
+                        <img 
+                            src="{{ this.preview_img_md }}" 
+                            alt="{{ this.name }}"
+                            class="card-img-top" 
+                            draggable="false">
+                        <div class="card-body">
+                            <h5 class="card-title text-light">{{ this.name }}</h5>
+                            <p class="card-text text-light">
+                                By 
+                                {{#each this.artists }}
+                                    <a href="/artist/{{ this.id }}">{{ this.name }}</a>
+                                {{/each }}
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {{/each }}
+
+    </div>
+    
+    {{#unless songs }}
+        <div class="row mt-5 mb-4">
+            <div class="col-sm-12 d-flex flex-row justify-content-center align-items-center">
+                <div class="alert bg-secondary text-light" role="alert">
+                    No results found.
+                </div>
+            </div>
+        </div>
+    {{/unless }}
+
+    {{#if songs }}
+        <div class="row mt-5 mb-4">
+            <div class="col-sm-12 d-flex flex-row justify-content-center align-items-center">
+                {{#unless genre_search_options.isFirstPage }}
+                    <a 
+                        href="/search?query={{search_options.search}}&page={{search_options.prevpage}}"
+                        class="btn btn-secondary btn-lg mr-3">
+                        Zurück
+                    </a>
+                {{/unless }}
+                {{#unless genre_search_options.isLastPage }}
+                    <a 
+                        href="/search?query={{search_options.search}}&page={{search_options.nextpage}}"
+                        class="btn btn-secondary btn-lg">
+                        Weiter
+                    </a>
+                {{/unless }}
+            </div>
+        </div>
+    {{/if }}
+</div>

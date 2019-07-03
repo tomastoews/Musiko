@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Tomas Töws">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome/all.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <title>Musiko</title>
+</head>
+<body>
+<div class="row">
+    <!-- Menu -->
+    <div class="col-lg-2">
+        {{> sidebar_nav }}
+        {{> sidebar this }}
+    </div>
+    <!-- Content -->
+    <div class="col-lg-10">
+        {{> navbar this }}
+        {{{ body }}}
+        {{!-- {{> playsong }} --}}
+    </div>
+
+</div>
+
+    <script src="js/carousel.js"></script>
+</body>
+</html>
