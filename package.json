@@ -1,7 +1,6 @@
 {
   "name": "musiko",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
     "start": "nodemon app.js",
     "prod-start": "node app.js"
