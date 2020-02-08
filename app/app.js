@@ -22,4 +22,4 @@ app.use(`${process.env.BASE_URL}/`, router);
 app.use('*/css',express.static(path.join(__dirname, '/public/css')));
 app.use('*/js',express.static(path.join(__dirname, '/public/js')));
 
-app.listen(port, () => console.log(`App is running on port ${port}`));
+app.listen(port, () => console.log(`App is running on http://localhost:${port}/musiko`));
