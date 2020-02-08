@@ -34,7 +34,7 @@ $enable-responsive-font-sizes: true;
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
 body {
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 a {

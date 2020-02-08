@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const service = require('./services/service');
+const service = require('./services/service.js');
+const baseURL = process.env.BASE_URL;
 
 router.get('/', async (req, res) => {
     const featuredSongs = await service.getSongs('Ice Cube', 8);
@@ -8,26 +9,42 @@ router.get('/', async (req, res) => {
     const featuredJazzAlbums = await service.getAlbums('jazz', 6);
     const featuredHipHopAlbums = await service.getAlbums('hip hop', 6);
     const featuredDanceAlbums = await service.getAlbums('dance', 6);
+    const featureRockAlbums = await service.getAlbums('rock', 6);
+    const featureMetalAlbums = await service.getAlbums('metal', 6);
     const featuredGenres = service.getFeaturedGenres();
 
     res.render('home', { 
         featuredSongs: {
             title: 'Featured Songs',
-            data: featuredSongs
+            data: featuredSongs,
+            baseURL
         },
         featuredArtsts,
         featuredGenres,
         featuredDanceAlbums: {
             title: 'Pop Albums',
-            data: featuredDanceAlbums
+            data: featuredDanceAlbums,
+            baseURL
         },
         featuredHipHopAlbums: {
             title: 'Hip Hop Albums',
-            data: featuredHipHopAlbums
+            data: featuredHipHopAlbums,
+            baseURL
         },
         featuredJazzAlbums: {
             title: 'Jazz Albums',
-            data: featuredJazzAlbums
+            data: featuredJazzAlbums,
+            baseURL
+        },
+        featuredRockAlbums: {
+            title: 'Rock Albums',
+            data: featureRockAlbums,
+            baseURL
+        },
+        featuredMetalAlbums: {
+            title: 'Metal Albums',
+            data: featureMetalAlbums,
+            baseURL
         }
     });
 })
@@ -46,7 +63,8 @@ router.get('/album/:albumId', async (req, res) => {
     res.render('album', {
         album,
         featuredArtsts,
-        featuredGenres
+        featuredGenres,
+        baseURL
     });
 });
 
@@ -64,7 +82,8 @@ router.get('/song/:songId', async (req, res) => {
     res.render('song', {
         song,
         featuredArtsts,
-        featuredGenres
+        featuredGenres,
+        baseURL
     });
 });
 
@@ -83,7 +102,8 @@ router.get('/artist/:artistId', async (req, res) => {
     res.render('artist', {
         artist,
         featuredArtsts,
-        featuredGenres
+        featuredGenres,
+        baseURL
     });
 });
 
@@ -106,7 +126,8 @@ router.get('/genre', async (req, res) => {
                 isLastPage: (songs.length < 20) ? true : false,
                 search: search
             },
-            search_query: search
+            search_query: search,
+            baseURL
         });
     } else {
         res.redirect('/');
@@ -132,7 +153,8 @@ router.get('/search', async (req, res) => {
                 isLastPage: (songs.length < 20) ? true : false,
                 search: query
             },
-            search_query: query
+            search_query: query,
+            baseURL
         });
     } else {
         res.redirect('/');

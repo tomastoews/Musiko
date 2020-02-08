@@ -1,9 +1,14 @@
-const SpotifyWebApi = require('spotify-web-api-node');
+
+// DOCUMENTATION:
+// https://www.npmjs.com/package/spotify-web-api-node
+
+const fs = require('fs');
 const timeConvert = require('time-convert');
+const SpotifyWebApi = require('spotify-web-api-node');
 
 const spotifyApi = new SpotifyWebApi({
-  clientId: '', 
-  clientSecret: ''
+  clientId: process.env.CLIENT_ID,
+  clientSecret: process.env.CLIENT_SECRET
 });
 
 spotifyApi.clientCredentialsGrant().then(
@@ -13,17 +18,23 @@ spotifyApi.clientCredentialsGrant().then(
     }
 );
 
-// spotifyApi.refreshAccessToken().then(
-//     function(data) {
-//       console.log('The access token has been refreshed!');
-  
-//       // Save the access token so that it's used in future calls
-//       spotifyApi.setAccessToken(data.body['access_token']);
-//     },
-//     function(err) {
-//       console.log('Could not refresh access token', err);
-//     }
-// );
+/* spotifyApi.refreshAccessToken().then(
+   function(data) {
+     console.log('The access token has been refreshed!');
+
+     // Save the access token so that it's used in future calls
+     spotifyApi.setAccessToken(data.body['access_token']);
+   },
+   function(err) {
+     console.log('Could not refresh access token', err);
+   }
+); */
+
+function getStaticData(field) {
+    const fileContent = fs.readFileSync('data/data.json', 'utf8');
+    if (!fileContent) return null;
+    return JSON.parse(fileContent)[field];
+}
 
 function getSongs(query, limit) {
     return new Promise((resolve, reject) => {
@@ -56,7 +67,7 @@ function getSong(song) {
     return new Promise((resolve, reject) => {
         spotifyApi.searchTracks(`tracḱ:${song}`).then(
             (data) => {
-                console.log(data);
+                //console.log(data);
                 if (data.body.tracks.items.length != 0) {
                     const item = data.body.tracks.items[0];
                     const song = {
@@ -283,44 +294,13 @@ function searchSongs(query, page) {
 }
 
 function getFeaturedArtsts() {
-    return [
-        {
-            name: 'Ice Cube',
-            id: '3Mcii5XWf6E0lrY3Uky4cA'
-        },
-        {
-            name: 'Young Maylay',
-            id: '58zzaIQ8XVObJml8da0b2e'
-        },
-        {
-            name: 'Snoop Dogg',
-            id: '7hJcb9fa4alzcOq3EaNPoG'
-        }, 
-        {
-            name: 'Dr. Dre',
-            id: '6DPYiyq5kWVQS4RGwxzPC7'
-        },
-        {
-            name: '50 Cent',
-            id: '3q7HBObVc0L8jNeTe5Gofh'
-        },
-        {
-            name: 'Ludacris',
-            id: '3ipn9JLAPI5GUEo4y4jcoi'
-        }
-    ];
+    console.log(getStaticData('featuredArtsts'));
+    return getStaticData('featuredArtsts');
 }
 
 function getFeaturedGenres() {
-    return [
-        'Hip Hop',
-        'Pop',
-        'Dance',
-        'Rock',
-        'Heavy Metal',
-        'Jazz',
-        'Swing'
-    ]
+    console.log(getStaticData('featuredGenres'));
+    return getStaticData('featuredGenres');
 }
 
 const msToM = ms => (

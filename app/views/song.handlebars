@@ -5,9 +5,9 @@
             <h4>
                 By 
                 {{#each song.artists }}
-                    <a href="/artist/{{ this.id }}">{{ this.name }}</a>
+                    <a href="artist/{{ this.id }}">{{ this.name }}</a>
                 {{/each }}
-                Album: <a href="/album/{{ song.album.id }}">{{ song.album.name }}</a>
+                Album: <a href="album/{{ song.album.id }}">{{ song.album.name }}</a>
             </h4>
 
             <div class="pt-4">
@@ -24,7 +24,7 @@
                                 <td>
                                     Genres: 
                                     {{#each song.genres }}
-                                        <a href="/genre/{{ this.name }}">{{ this.name }}</a>
+                                        <a href="genre/{{ this.name }}">{{ this.name }}</a>
                                     {{/each }}
                                 </td>
                             </tr>
@@ -74,7 +74,7 @@
                                 Genres: <br/>
                                 {{#each this.genres }}
                                     <a
-                                        href="/genre?search={{ this }}" 
+                                        href="genre?search={{ this }}" 
                                         class="badge badge-light">
                                         {{ this }}
                                     </a>

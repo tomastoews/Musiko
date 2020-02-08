@@ -1,0 +1,65 @@
+{
+    "featuredArtsts": [
+        {
+            "name": "Ice Cube",
+            "id": "3Mcii5XWf6E0lrY3Uky4cA"
+        },
+        {
+            "name": "Young Maylay",
+            "id": "58zzaIQ8XVObJml8da0b2e"
+        },
+        {
+            "name": "Snoop Dogg",
+            "id": "7hJcb9fa4alzcOq3EaNPoG"
+        }, 
+        {
+            "name": "Dr. Dre",
+            "id": "6DPYiyq5kWVQS4RGwxzPC7"
+        },
+        {
+            "name": "50 Cent",
+            "id": "3q7HBObVc0L8jNeTe5Gofh"
+        },
+        {
+            "name": "Grigory Leps",
+            "id": "2eLrVxwm6t4QeaORq5w8VW"
+        },
+        {
+            "name": "Rammstein",
+            "id": "6wWVKhxIU2cEi0K81v7HvP"
+        },
+        {
+            "name": "Evanescence",
+            "id": "5nGIFgo0shDenQYSE0Sn7c"
+        },
+        {
+            "name": "Within Temptation",
+            "id": "3hE8S8ohRErocpkY7uJW4a"
+        },
+        {
+            "name": "Nightwish",
+            "id": "2NPduAUeLVsfIauhRwuft1"
+        },
+        {
+            "name": "Delain",
+            "id": "6pIRdCtSE5hLFfIfcTAicI"
+        },
+        {
+            "name": "Metalite",
+            "id": "18RXUrxy1BYOOvrW0XuFBg"
+        },
+        {
+            "name": "Dean Martin",
+            "id": "49e4v89VmlDcFCMyDv9wQ9"
+        }
+    ],
+    "featuredGenres": [
+        "Hip Hop",
+        "Pop",
+        "Dance",
+        "Rock",
+        "Metal",
+        "Jazz",
+        "Swing"
+    ]
+}

@@ -10623,7 +10623,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 body {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 a {

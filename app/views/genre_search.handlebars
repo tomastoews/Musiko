@@ -4,7 +4,7 @@
 
         {{#each songs }}
             <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2 mb-3">
-                <a href="/song/{{ this.name }}">
+                <a href="song/{{ this.name }}">
                     <div class="card bg-secondary">
                         <img 
                             src="{{ this.preview_img_md }}" 
@@ -16,7 +16,7 @@
                             <p class="card-text text-light">
                                 By 
                                 {{#each this.artists }}
-                                    <a href="/artist/{{ this.id }}">{{ this.name }}</a>
+                                    <a href="artist/{{ this.id }}">{{ this.name }}</a>
                                 {{/each }}
                             </p>
                         </div>
@@ -42,14 +42,14 @@
             <div class="col-sm-12 d-flex flex-row justify-content-center align-items-center">
                 {{#unless genre_search_options.isFirstPage }}
                     <a 
-                        href="/genre?search={{search_options.search}}&page={{ search_options.prevpage }}"
+                        href="genre?search={{search_options.search}}&page={{ search_options.prevpage }}"
                         class="btn btn-secondary btn-lg mr-3">
                         Zurück
                     </a>
                 {{/unless }}
                 {{#unless genre_search_options.isLastPage }}
                     <a 
-                        href="/genre?search={{search_options.search}}&page={{ search_options.nextpage }}"
+                        href="genre?search={{search_options.search}}&page={{ search_options.nextpage }}"
                         class="btn btn-secondary btn-lg">
                         Weiter
                     </a>

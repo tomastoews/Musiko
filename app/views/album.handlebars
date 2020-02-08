@@ -5,7 +5,7 @@
             <h4>
                 By 
                 {{#each album.artists }}
-                    <a href="/artist/{{ this.id }}">{{ this.name }}</a>
+                    <a href="artist/{{ this.id }}">{{ this.name }}</a>
                 {{/each }}
             </h4>
 
@@ -20,7 +20,7 @@
                                 <td>
                                     Genres: 
                                     {{#each album.genres }}
-                                        <a href="/genre?search={{ this.name }}">{{ this.name }}</a>
+                                        <a href="genre?search={{ this.name }}">{{ this.name }}</a>
                                     {{/each }}
                                 </td>
                             </tr>
@@ -59,7 +59,7 @@
                         Genres: <br/>
                         {{#each this.genres }}
                             <a
-                                href="/genre/{{ this }}" 
+                                href="genre/{{ this }}" 
                                 class="badge badge-light">
                                 {{ this }}
                             </a>
@@ -75,7 +75,7 @@
             {{#if album.tracks }}
                 {{#each album.tracks }}                     
                     <a 
-                        href="/song/{{ this.name }}"
+                        href="song/{{ this.name }}"
                         class="btn btn-secondary mb-3 mr-3">
                         <i class="fas fa-music mr-2"></i>
                         {{ this.name }}
