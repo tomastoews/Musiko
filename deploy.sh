@@ -1,9 +1,11 @@
+#!/bin/bash
+
 project="musiko"
 
 echo "Starting deployment of $project"
 
 echo "Cleaning dist/ directory..."
-ssh root@tomastoews.de "rm -r -f -v /containers/$project && mkdir -p /containers/$project/dist"
+ssh tt@tomastoews.de "rm -r -f -v /containers/$project && mkdir -p /containers/$project/dist"
 echo "Cleaning done: ok"
 
 echo "Preparing upload..."
@@ -15,15 +17,15 @@ rm -r dist/node_modules
 echo "Preparing done: ok"
 
 echo "Uploading project dist/ files..."
-scp -r dist/* dist/.env root@tomastoews.de:/containers/$project/dist
+scp -r dist/* dist/.env tt@tomastoews.de:/containers/$project/dist
 rm -r dist/
 echo "Upload done: ok"
 
 echo "Uploading dockerfile and other files..."
-scp Dockerfile .dockerignore root@tomastoews.de:/containers/$project/
+scp Dockerfile .dockerignore tt@tomastoews.de:/containers/$project/
 echo "Upload done: ok"
 
-ssh root@tomastoews.de "cd /containers/scripts && sh ./build-image.sh $project && sh ./start.sh $project 8085:3000"
+ssh tt@tomastoews.de "cd /containers/scripts && sh ./build-image.sh $project && sh ./start.sh $project 8085:3000"
 
 echo "Image build done: ok"
 echo "Container start done: ok"
